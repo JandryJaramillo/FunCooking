@@ -10,12 +10,12 @@ import RecipeScreen from './screens/RecipeScreen';
 import CombinarScreen from './screens/CombinarScreen';
 import Hamburguesa from './screens/Hamburguesa';
 import IngredientScreen from './screens/IngredientScreen';
-import 'react-native-gesture-handler'
-import MyDrawer from './navigation';
+import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator()
 
 function MyStack() {
+
     return (
         <Stack.Navigator screenOptions={{
             headerShown: false
@@ -27,18 +27,15 @@ function MyStack() {
             <Stack.Screen name='Combinar' component={CombinarScreen} />
             <Stack.Screen name='Colection' component={ColectionScreen} />
             <Stack.Screen name='Recipe' component={RecipeScreen} />
-            <Stack.Screen name='Hamburguesa' component={Hamburguesa} />
+            <Stack.Screen name='Hamburguesa' component={Hamburguesa} options={{presentation: 'transparentModal'}} />
             <Stack.Screen name='Ingredient' component={IngredientScreen} />
         </Stack.Navigator>
     )
 }
 
-//<NavigationContainer>
-//<MyStack />
-//</NavigationContainer>
-
 export default function App() {
-    return (
+
+        return (
         <NavigationContainer>
             <MyStack />
         </NavigationContainer>
