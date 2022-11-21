@@ -5,9 +5,12 @@ import * as Font from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { Comfortaa_400Regular } from '@expo-google-fonts/comfortaa';
 import { Montserrat_400Regular, Montserrat_500Medium } from '@expo-google-fonts/montserrat';
+import { useAuth } from '../context/authContext';
 
 const Start = (props: any) => {
   const [appIsReady, setAppIsReady] = useState(false);
+
+  const authContext = useAuth()
 
   useEffect(() => {
     async function prepare() {

@@ -10,6 +10,7 @@ import RecipeScreen from './screens/RecipeScreen';
 import CombinarScreen from './screens/CombinarScreen';
 import Hamburguesa from './screens/Hamburguesa';
 import IngredientScreen from './screens/IngredientScreen';
+import { AuthProvider } from './context/authContext';
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator()
@@ -17,25 +18,27 @@ const Stack = createStackNavigator()
 function MyStack() {
 
     return (
-        <Stack.Navigator screenOptions={{
-            headerShown: false
-        }}>
-            <Stack.Screen name='Start' component={Start} />
-            <Stack.Screen name='Screen1' component={Screen1} />
-            <Stack.Screen name='Screen2' component={Screen2} />
-            <Stack.Screen name='Screen3' component={Screen3} />
-            <Stack.Screen name='Combinar' component={CombinarScreen} />
-            <Stack.Screen name='Colection' component={ColectionScreen} />
-            <Stack.Screen name='Recipe' component={RecipeScreen} />
-            <Stack.Screen name='Hamburguesa' component={Hamburguesa} options={{presentation: 'transparentModal'}} />
-            <Stack.Screen name='Ingredient' component={IngredientScreen} />
-        </Stack.Navigator>
+        <AuthProvider>
+            <Stack.Navigator screenOptions={{
+                headerShown: false
+            }}>
+                <Stack.Screen name='Start' component={Start} />
+                <Stack.Screen name='Screen1' component={Screen1} />
+                <Stack.Screen name='Screen2' component={Screen2} />
+                <Stack.Screen name='Screen3' component={Screen3} />
+                <Stack.Screen name='Combinar' component={CombinarScreen} />
+                <Stack.Screen name='Colection' component={ColectionScreen} />
+                <Stack.Screen name='Recipe' component={RecipeScreen} />
+                <Stack.Screen name='Hamburguesa' component={Hamburguesa} options={{ presentation: 'transparentModal' }} />
+                <Stack.Screen name='Ingredient' component={IngredientScreen} />
+            </Stack.Navigator>
+        </AuthProvider>
     )
 }
 
 export default function App() {
 
-        return (
+    return (
         <NavigationContainer>
             <MyStack />
         </NavigationContainer>
